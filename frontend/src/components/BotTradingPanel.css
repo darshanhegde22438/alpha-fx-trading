@@ -1,0 +1,304 @@
+.bot-trading-panel {
+  width: 100%;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.panel-header h3 {
+  color: #1f2937;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.bot-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-indicator {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-indicator.active {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.status-indicator.inactive {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.bot-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.bot-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.control-group label {
+  color: #374151;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #10b981;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.control-group input[type="number"],
+.control-group select {
+  padding: 12px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.control-group input[type="number"]:focus,
+.control-group select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.currency-display {
+  padding: 12px 16px;
+  background: #f8fafc;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.currency-pair {
+  color: #1f2937;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Courier New', monospace;
+}
+
+.currency-description {
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.bot-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.trading-strategy,
+.last-action,
+.bot-performance,
+.bot-warning {
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.trading-strategy {
+  background: #f0f9ff;
+  border-color: #bfdbfe;
+}
+
+.last-action {
+  background: #f8fafc;
+}
+
+.bot-performance {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
+
+.bot-warning {
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.trading-strategy h4,
+.last-action h4,
+.bot-performance h4,
+.bot-warning h4 {
+  color: #1f2937;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+}
+
+.strategy-details,
+.action-details,
+.performance-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.strategy-item,
+.action-item,
+.perf-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.strategy-item:last-child,
+.action-item:last-child,
+.perf-item:last-child {
+  border-bottom: none;
+}
+
+.strategy-label,
+.action-label,
+.perf-label {
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.strategy-value,
+.action-value,
+.perf-value {
+  color: #1f2937;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.action-value.buy {
+  color: #10b981;
+}
+
+.action-value.sell {
+  color: #ef4444;
+}
+
+.bot-warning p {
+  color: #dc2626;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Bot-specific animations */
+@keyframes bot-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.bot-active-indicator {
+  animation: bot-pulse 2s infinite;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .bot-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .panel-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  
+  .strategy-details,
+  .action-details,
+  .performance-stats {
+    gap: 8px;
+  }
+  
+  .strategy-item,
+  .action-item,
+  .perf-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .strategy-value,
+  .action-value,
+  .perf-value {
+    text-align: left;
+  }
+}
