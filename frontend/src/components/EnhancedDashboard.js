@@ -152,11 +152,19 @@ const EnhancedDashboard = () => {
     setSelectedPair(pair);
   };
 
+  const handleBuy = (tradeData) => {
+    handleTrade(tradeData);
+  };
+
+  const handleSell = (tradeData) => {
+    handleTrade(tradeData);
+  };
+
   const handleTrade = (tradeData) => {
     const newTrade = {
       id: Date.now(),
       timestamp: new Date(),
-      pair: selectedPair,
+      pair: tradeData.pair || selectedPair,
       type: tradeData.type, // 'buy' or 'sell'
       amount: tradeData.amount,
       rate: tradeData.rate,
@@ -175,13 +183,17 @@ const EnhancedDashboard = () => {
         : prev.balance + newTrade.total,
       positions: {
         ...prev.positions,
-        [selectedPair]: {
-          amount: (prev.positions[selectedPair]?.amount || 0) + 
+        [tradeData.pair || selectedPair]: {
+          amount: (prev.positions[tradeData.pair || selectedPair]?.amount || 0) + 
             (tradeData.type === 'buy' ? tradeData.amount : -tradeData.amount),
           avgRate: tradeData.rate
         }
       }
     }));
+
+    // Show success message
+    const pairName = tradeData.pairData?.pair || tradeData.pair || selectedPair;
+    alert(`✅ ${tradeData.type.toUpperCase()} order executed! ${tradeData.amount} units at ${tradeData.rate}`);
   };
 
   const handleBotTrade = (tradeData) => {
@@ -313,6 +325,9 @@ const EnhancedDashboard = () => {
             onPairSelect={handlePairSelect}
             selectedPair={selectedPair}
             loading={loading}
+            onBuy={handleBuy}
+            onSell={handleSell}
+            portfolio={portfolio}
           />
         </div>
 
