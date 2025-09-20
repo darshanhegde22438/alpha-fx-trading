@@ -1,0 +1,195 @@
+.currency-table-container {
+  width: 100%;
+}
+
+.table-loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: #6b7280;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.currency-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  font-size: 14px;
+}
+
+.currency-table thead {
+  background: #f8fafc;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.currency-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #374151;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.currency-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f3f4f6;
+  vertical-align: middle;
+}
+
+.table-row {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.table-row:hover {
+  background: #f8fafc;
+}
+
+.table-row.selected {
+  background: #eff6ff;
+  border-left: 4px solid #3b82f6;
+}
+
+.pair-cell {
+  min-width: 120px;
+}
+
+.pair-symbol {
+  display: block;
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 14px;
+}
+
+.pair-description {
+  display: block;
+  color: #6b7280;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.rate-cell {
+  min-width: 100px;
+}
+
+.rate-value {
+  font-weight: 600;
+  color: #1f2937;
+  font-family: 'Courier New', monospace;
+}
+
+.sma-cell {
+  min-width: 90px;
+}
+
+.sma-value {
+  color: #6b7280;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+}
+
+.trend-cell {
+  text-align: center;
+  min-width: 60px;
+}
+
+.trend-indicator {
+  font-size: 16px;
+  display: inline-block;
+}
+
+.action-cell {
+  text-align: center;
+  min-width: 80px;
+}
+
+.select-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.select-button:hover {
+  background: #2563eb;
+}
+
+.select-button.selected {
+  background: #10b981;
+}
+
+.select-button.selected:hover {
+  background: #059669;
+}
+
+.no-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: #6b7280;
+  font-size: 16px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 2px dashed #d1d5db;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .currency-table {
+    font-size: 12px;
+  }
+  
+  .currency-table th,
+  .currency-table td {
+    padding: 8px 12px;
+  }
+  
+  .pair-symbol {
+    font-size: 13px;
+  }
+  
+  .pair-description {
+    font-size: 11px;
+  }
+  
+  .rate-value,
+  .sma-value {
+    font-size: 12px;
+  }
+  
+  .select-button {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .currency-table th,
+  .currency-table td {
+    padding: 6px 8px;
+  }
+  
+  .currency-table th {
+    font-size: 10px;
+  }
+  
+  .currency-table {
+    font-size: 11px;
+  }
+}
