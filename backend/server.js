@@ -99,10 +99,13 @@ cron.schedule('0 * * * * *', async () => {
 });
 
 // Start server
+<<<<<<< HEAD
 
 // trading routes
 const tradingRoutes = require("./routes/trading");
 app.use("/api/trading", tradingRoutes);
+=======
+>>>>>>> cc145799db90b40348b95ebe68d1e1c54d9ae0f9
 app.listen(port, async () => {
   console.log(`🚀 AlphaFxTrader server running on http://localhost:${port}`);
   console.log('📊 Scheduled tasks:');
