@@ -1,0 +1,7 @@
+print("----------------------------")
+# print(f"Currency Pair : {pair}")
+# print(f"Open          : {open_price}")
+# print(f"High          : {high}")
+# print(f"Low           : {low}")
+# print(f"Close         : {close}")
+# print(f"Predicted Rate: {predicted_rate:.5f}")
